@@ -10,63 +10,85 @@
  * governing permissions and limitations under the License.
  */
 
+/* fallback font */
+@font-face {
+  font-family: att-aleck-sans-fallback;
+  size-adjust: 100%;
+  src: local('Arial');
+}
+
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* AT&T Brand Colors */
+  --att-blue: #0057b8;
+  --att-blue-dark: #00388f;
+  --att-blue-hover: #0057b8;
+  --background-color: #fff;
+  --light-color: #f3f4f6;
+  --light-blue: #f2fafd;
+  --light-blue-hover: #dcf3fa;
+  --dark-color: #1d2329;
+  --text-color: #333;
+  --text-color-dark: #1d2329;
+  --text-color-muted: #454b52;
+  --text-color-inverse: #f2fafd;
+  --link-color: #0057b8;
+  --link-hover-color: #00388f;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'ATT Aleck Sans', att-aleck-sans-fallback, arial, sans-serif;
+  --heading-font-family: 'ATT Aleck Sans', att-aleck-sans-fallback, arial, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-l: 18px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes - mobile first */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 22px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
-  /* nav height */
+  /* spacing */
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+
+  /* layout */
+  --section-max-width: 1200px;
   --nav-height: 64px;
-}
 
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
+  /* buttons */
+  --button-border-radius: 28px;
+  --button-height: 48px;
+  --button-padding: 0 32px;
+  --button-font-size: 14px;
+  --button-transition: all 0.2s ease;
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+  /* transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+
+  /* focus */
+  --focus-outline: 2px solid var(--att-blue);
+  --focus-outline-offset: 2px;
 }
 
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    /* heading sizes - desktop */
+    --heading-font-size-xxl: 38px;
+    --heading-font-size-xl: 32px;
+    --heading-font-size-l: 22px;
+    --heading-font-size-m: 20px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
   }
 }
 
@@ -77,7 +99,8 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 body.appear {
@@ -98,6 +121,7 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* headings */
 h1,
 h2,
 h3,
@@ -107,8 +131,10 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-color-dark);
   scroll-margin: 40px;
 }
 
@@ -127,6 +153,23 @@ pre,
 blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
+}
+
+p {
+  color: var(--text-color-muted);
+  line-height: 1.5;
+}
+
+em {
+  font-style: normal;
+  font-size: var(--body-font-size-s);
+  color: var(--text-color-dark);
+}
+
+sup {
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
 }
 
 code,
@@ -158,11 +201,18 @@ a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
+  transition: color var(--transition-base);
 }
 
 a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  border-radius: 2px;
 }
 
 /* buttons */
@@ -177,30 +227,36 @@ button.button {
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  min-width: 100px;
+  height: var(--button-height);
   margin: 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  line-height: 1;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: var(--button-transition);
 }
 
 a.button[aria-disabled="true"],
 button.button:disabled {
   cursor: not-allowed;
   pointer-events: none;
+  opacity: 0.5;
 }
 
+/* primary button - AT&T Blue filled */
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
+  border-color: var(--att-blue-dark);
+  background-color: var(--att-blue-dark);
   color: var(--background-color);
 }
 
@@ -208,54 +264,47 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: var(--att-blue-hover);
+  background-color: var(--att-blue-hover);
+  color: var(--background-color);
 }
 
 a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
+button.button.primary:disabled {
   background-color: var(--light-color);
   border-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--text-color-muted);
 }
 
+/* secondary button - outlined */
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--text-color-dark);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--text-color-dark);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  border-color: var(--light-blue-hover);
+  background-color: var(--light-blue-hover);
+  color: var(--att-blue-hover);
 }
 
 a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
+button.button.secondary:disabled {
   background-color: var(--light-color);
   border-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--text-color-muted);
 }
 
-/* high-impact call-to-action */
+/* accent button */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
+  border-color: var(--att-blue);
+  background-color: var(--att-blue);
   color: var(--background-color);
 }
 
@@ -263,21 +312,18 @@ a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  border-color: var(--att-blue-dark);
+  background-color: var(--att-blue-dark);
 }
 
 a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
+button.button.accent:disabled {
   background-color: var(--light-color);
   border-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--text-color-muted);
 }
 
+/* images */
 main img {
   max-width: 100%;
   width: auto;
@@ -301,7 +347,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--section-max-width);
   margin: auto;
   padding: 0 24px;
 }
@@ -316,10 +362,114 @@ main > .section:first-of-type {
   }
 }
 
-/* section metadata */
+/* section metadata: grey */
+main .section.grey,
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* section metadata: dark */
+main .section.dark {
+  background-color: var(--dark-color);
+  color: var(--text-color-inverse);
+  margin: 0;
+  padding: 48px 0;
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: var(--background-color);
+}
+
+main .section.dark p {
+  color: var(--text-color-inverse);
+}
+
+main .section.dark a:any-link {
+  color: var(--text-color-inverse);
+}
+
+main .section.dark a.button.primary {
+  border-color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--att-blue-dark);
+}
+
+main .section.dark a.button.primary:hover {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+}
+
+main .section.dark a.button.secondary {
+  border-color: var(--text-color-inverse);
+  background-color: transparent;
+  color: var(--text-color-inverse);
+}
+
+main .section.dark a.button.secondary:hover {
+  background-color: var(--light-blue-hover);
+  border-color: var(--light-blue-hover);
+  color: var(--att-blue-dark);
+}
+
+/* section metadata: accent (light blue) */
+main .section.accent {
+  background-color: var(--light-blue);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.accent p {
+  color: var(--text-color-muted);
+}
+
+/* form elements */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid var(--text-color-muted);
+  background-color: transparent;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--text-color-muted);
+  transition: border-color var(--transition-base);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  border-bottom-color: var(--att-blue);
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-color-muted);
+  opacity: 0.7;
+}
+
+/* lists */
+ul,
+ol {
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+  color: var(--text-color-muted);
 }

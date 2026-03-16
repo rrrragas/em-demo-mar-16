@@ -1,0 +1,104 @@
+.form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+}
+
+.form .form-field label {
+  display: block;
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color-muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.form .form-field input,
+.form .form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #c4c4c4;
+  background-color: transparent;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  transition: border-color var(--transition-base);
+}
+
+.form .form-field input:focus,
+.form .form-field textarea:focus {
+  border-bottom-color: var(--att-blue);
+  outline: none;
+}
+
+.form .form-field input::placeholder,
+.form .form-field textarea::placeholder {
+  color: transparent;
+}
+
+.form .form-field-checkbox {
+  grid-column: 1 / -1;
+}
+
+.form .form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  font-size: var(--body-font-size-s);
+  color: var(--text-color-muted);
+  line-height: 1.4;
+}
+
+.form .form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-top: 2px;
+  accent-color: var(--att-blue);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.form .form-submit {
+  grid-column: 1 / -1;
+  margin-top: var(--spacing-s);
+}
+
+.form .form-submit button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  min-width: 160px;
+  border: 2px solid transparent;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  background-color: var(--att-blue-dark);
+  color: var(--background-color);
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--button-transition);
+}
+
+.form .form-submit button:hover {
+  background-color: var(--att-blue-hover);
+  border-color: var(--att-blue-hover);
+}
+
+@media (width >= 600px) {
+  .form form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form .form-field-textarea,
+  .form .form-field-checkbox,
+  .form .form-submit {
+    grid-column: 1 / -1;
+  }
+}
