@@ -48,6 +48,7 @@ footer .footer > div > .section:first-child a:hover {
 
 /* Section 2: Category links */
 footer .footer > div > .section:nth-child(2) {
+  background-color: #f2fafd;
   margin: 0;
   padding: 0;
 }
@@ -55,10 +56,10 @@ footer .footer > div > .section:nth-child(2) {
 footer .footer > div > .section:nth-child(2) .default-content-wrapper {
   max-width: var(--section-max-width);
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 64px 24px 32px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
+  gap: 16px;
 }
 
 footer .footer > div > .section:nth-child(2) ul {
@@ -69,15 +70,15 @@ footer .footer > div > .section:nth-child(2) ul {
 
 footer .footer > div > .section:nth-child(2) li {
   padding: 8px 0;
-  border-bottom: 1px solid #e5e5e5;
-  color: var(--text-color-dark);
+  border-bottom: none;
+  color: #000;
   margin: 0;
 }
 
 footer .footer > div > .section:nth-child(2) a:any-link {
-  color: var(--text-color-dark);
-  font-weight: 700;
-  font-size: var(--body-font-size-s);
+  color: #000;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 footer .footer > div > .section:nth-child(2) a:hover {
@@ -88,7 +89,7 @@ footer .footer > div > .section:nth-child(2) a:hover {
 footer .footer > div > .section:nth-child(3) {
   margin: 0;
   padding: 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #d2d2d2;
 }
 
 footer .footer > div > .section:nth-child(3) .default-content-wrapper {
@@ -113,9 +114,9 @@ footer .footer > div > .section:nth-child(3) li {
 }
 
 footer .footer > div > .section:nth-child(3) a:any-link {
-  color: var(--text-color-dark);
-  font-weight: 700;
-  font-size: var(--body-font-size-m);
+  color: #000;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 footer .footer > div > .section:nth-child(3) a:hover {
@@ -137,8 +138,9 @@ footer .footer > div > .section:last-child .default-content-wrapper {
 footer .footer > div > .section:last-child p:first-child {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 8px;
+  gap: 8px 16px;
   margin-bottom: 16px;
+  padding-bottom: 8px;
 }
 
 footer .footer > div > .section:last-child p:first-child a {
@@ -151,9 +153,9 @@ footer .footer > div > .section:last-child p:first-child a:hover {
 }
 
 footer .footer > div > .section:last-child p:last-child {
-  font-size: var(--body-font-size-xs);
-  color: var(--text-color-muted);
-  line-height: 1.5;
+  font-size: 11px;
+  color: #1d2329;
+  line-height: 1.45;
 }
 
 /* Responsive */
@@ -173,13 +175,14 @@ footer .footer > div > .section:last-child p:last-child {
   }
 
   footer .footer > div > .section:nth-child(2) .default-content-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 32px;
-    padding: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 12.5%;
+    padding: 64px 32px 32px;
   }
 
   footer .footer > div > .section:nth-child(3) .default-content-wrapper {
     grid-template-columns: repeat(4, 1fr);
+    gap: 16px 12.5%;
     padding: 24px 32px;
   }
 
