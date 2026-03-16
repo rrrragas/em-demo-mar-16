@@ -1,20 +1,189 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
-}
-
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  background-color: var(--background-color);
+  font-size: var(--body-font-size-s);
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* Section 1: Logo + Social links bar */
+footer .footer > div > .section:first-child {
+  background-color: #009fdb;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer > div > .section:first-child .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+footer .footer > div > .section:first-child img {
+  width: 140px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+footer .footer > div > .section:first-child p:last-child {
+  display: flex;
+  gap: 24px;
+}
+
+footer .footer > div > .section:first-child a {
+  color: var(--background-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+footer .footer > div > .section:first-child a:hover {
+  text-decoration: underline;
+  color: var(--background-color);
+}
+
+/* Section 2: Category links */
+footer .footer > div > .section:nth-child(2) {
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer > div > .section:nth-child(2) .default-content-wrapper {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+footer .footer > div > .section:nth-child(2) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer > div > .section:nth-child(2) li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e5e5;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+
+footer .footer > div > .section:nth-child(2) a:any-link {
+  color: var(--text-color-dark);
+  font-weight: 700;
+  font-size: var(--body-font-size-s);
+}
+
+footer .footer > div > .section:nth-child(2) a:hover {
+  color: var(--link-color);
+}
+
+/* Section 3: Quick links */
+footer .footer > div > .section:nth-child(3) {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+footer .footer > div > .section:nth-child(3) .default-content-wrapper {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 32px;
+}
+
+footer .footer > div > .section:nth-child(3) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer > div > .section:nth-child(3) li {
+  padding: 6px 0;
+  color: var(--text-color-dark);
+  margin: 0;
+}
+
+footer .footer > div > .section:nth-child(3) a:any-link {
+  color: var(--text-color-dark);
+  font-weight: 700;
+  font-size: var(--body-font-size-m);
+}
+
+footer .footer > div > .section:nth-child(3) a:hover {
+  color: var(--link-color);
+}
+
+/* Section 4: Legal links + Copyright */
+footer .footer > div > .section:last-child {
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer > div > .section:last-child .default-content-wrapper {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: 16px 24px 32px;
+}
+
+footer .footer > div > .section:last-child p:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 16px;
+}
+
+footer .footer > div > .section:last-child p:first-child a {
+  color: var(--text-color-muted);
+  font-size: var(--body-font-size-xs);
+}
+
+footer .footer > div > .section:last-child p:first-child a:hover {
+  color: var(--link-color);
+}
+
+footer .footer > div > .section:last-child p:last-child {
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color-muted);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (width >= 600px) {
+  footer .footer > div > .section:nth-child(2) .default-content-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer .footer > div > .section:nth-child(3) .default-content-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer > div > .section:first-child .default-content-wrapper {
+    padding: 16px 32px;
+  }
+
+  footer .footer > div > .section:nth-child(2) .default-content-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 32px;
+    padding: 32px;
+  }
+
+  footer .footer > div > .section:nth-child(3) .default-content-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 24px 32px;
+  }
+
+  footer .footer > div > .section:last-child .default-content-wrapper {
+    padding: 16px 32px 32px;
   }
 }
