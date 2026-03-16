@@ -377,6 +377,7 @@ main .section.dark {
   color: var(--text-color-inverse);
   margin: 0;
   padding: 48px 0;
+  overflow: hidden;
 }
 
 main .section.dark h1,

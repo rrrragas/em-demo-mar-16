@@ -114,6 +114,116 @@ function decorateButtons(main) {
 }
 
 /**
+ * Adds identifying classes to sections based on content.
+ * @param {Element} main The main element
+ */
+function classifySections(main) {
+  main.querySelectorAll('.section').forEach((section) => {
+    const h2 = section.querySelector('h2');
+    if (!h2) return;
+    const text = h2.textContent.trim().toLowerCase();
+    if (text.includes('guarantee') && !section.classList.contains('columns-icon-cards-container')) {
+      section.classList.add('guarantee');
+    } else if (text.includes('driving industry')) {
+      section.classList.add('testimonials');
+    } else if (text.includes('make the switch')) {
+      section.classList.add('switch');
+    } else if (text.includes('#1') && text.includes('customer')) {
+      section.classList.add('satisfaction');
+    }
+  });
+}
+
+/**
+ * Restructures testimonial default content into a card grid.
+ * @param {Element} main The main element
+ */
+function buildTestimonialCards(main) {
+  const section = main.querySelector('.section.testimonials');
+  if (!section) return;
+  const wrapper = section.querySelector('.default-content-wrapper');
+  if (!wrapper) return;
+
+  const h2 = wrapper.querySelector('h2');
+  const introP = h2 && h2.nextElementSibling;
+  if (!h2 || !introP) return;
+
+  const elements = [...wrapper.children];
+  const startIdx = elements.indexOf(introP) + 1;
+  const remaining = elements.slice(startIdx);
+
+  const cards = [];
+  let currentCard = null;
+  const trailing = [];
+  let doneWithCards = false;
+
+  remaining.forEach((el) => {
+    if (doneWithCards) {
+      trailing.push(el);
+      return;
+    }
+    const pic = el.querySelector('picture') || el.querySelector('img');
+    const isImageOnly = pic && el.tagName === 'P'
+      && el.textContent.trim() === '';
+    if (isImageOnly) {
+      if (currentCard && currentCard.length > 0) cards.push(currentCard);
+      currentCard = [el];
+    } else if (currentCard) {
+      const isLinkP = el.querySelector('a') && el.tagName === 'P'
+        && el.querySelectorAll('a').length === 1
+        && el.textContent.trim() === el.querySelector('a').textContent.trim();
+      currentCard.push(el);
+      if (isLinkP) {
+        cards.push(currentCard);
+        currentCard = null;
+        doneWithCards = cards.length >= 4;
+      }
+    } else {
+      trailing.push(el);
+    }
+  });
+  if (currentCard && currentCard.length > 0) cards.push(currentCard);
+
+  if (cards.length < 2) return;
+
+  const grid = document.createElement('div');
+  grid.className = 'testimonial-grid';
+
+  cards.forEach((cardEls) => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    cardEls.forEach((el) => card.append(el));
+    grid.append(card);
+  });
+
+  introP.after(grid);
+}
+
+/**
+ * Makes the guarantee section image a background.
+ * @param {Element} main The main element
+ */
+function buildGuaranteeBackground(main) {
+  const section = main.querySelector('.section.guarantee');
+  if (!section) return;
+  const wrapper = section.querySelector('.default-content-wrapper');
+  if (!wrapper) return;
+
+  const firstP = wrapper.querySelector('p:first-child');
+  const img = firstP && firstP.querySelector('img');
+  if (!img) return;
+
+  section.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${img.currentSrc || img.src})`;
+  section.style.backgroundSize = 'cover';
+  section.style.backgroundPosition = 'center';
+  firstP.remove();
+
+  const lastP = wrapper.querySelector('p:last-child');
+  const lastImg = lastP && lastP.querySelector('img');
+  if (lastImg && lastP.textContent.trim() === '') lastP.remove();
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -124,6 +234,9 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  classifySections(main);
+  buildTestimonialCards(main);
+  buildGuaranteeBackground(main);
 }
 
 /**

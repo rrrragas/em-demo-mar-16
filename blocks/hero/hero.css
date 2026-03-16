@@ -20,9 +20,23 @@
   z-index: 0;
 }
 
+/* gradient overlay for readable text on left */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255 / 95%) 0%,
+    rgb(255 255 255 / 88%) 35%,
+    rgb(255 255 255 / 0%) 55%
+  );
+  z-index: 1;
+}
+
 .hero .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   max-width: var(--section-max-width);
   margin: 0 auto;
@@ -36,7 +50,7 @@
 .hero .hero-content em {
   display: block;
   font-style: normal;
-  font-size: var(--heading-font-size-m);
+  font-size: var(--body-font-size-s);
   font-weight: 400;
   color: var(--text-color-dark);
   margin-bottom: var(--spacing-xs);

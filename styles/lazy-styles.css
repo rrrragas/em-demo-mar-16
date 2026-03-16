@@ -1,1 +1,438 @@
-/* add global styles that can be loaded post LCP here */
+/* stylelint-disable no-descending-specificity */
+
+/* ========================
+   Dark Section (Dynamic Defense) - 2-column layout
+   ======================== */
+main .section.dark h2 {
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+@media (width >= 900px) {
+  main .section.dark > .default-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    max-width: var(--section-max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+    align-items: start;
+  }
+
+  main .section.dark > .default-content-wrapper > * {
+    grid-column: 1;
+  }
+
+  /* First picture (desktop image) goes to column 2, spanning all rows */
+  main .section.dark > .default-content-wrapper > p:first-child {
+    grid-column: 2;
+    grid-row: 1 / 20;
+  }
+
+  main .section.dark > .default-content-wrapper > p:first-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Hide the second (mobile) picture on desktop */
+  main .section.dark > .default-content-wrapper > p:last-child:has(picture),
+  main .section.dark > .default-content-wrapper > p:last-child:has(img:only-child) {
+    display: none;
+  }
+}
+
+/* Dark section - button-style links */
+main .section.dark > .default-content-wrapper > p > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--text-color-inverse);
+  border-radius: var(--button-border-radius);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+  color: var(--text-color-inverse);
+  background-color: transparent;
+  margin-right: 12px;
+}
+
+main .section.dark > .default-content-wrapper > p > a:only-child:hover {
+  background-color: var(--background-color);
+  border-color: var(--background-color);
+  color: var(--att-blue-dark);
+}
+
+/* Dark section - multiple links in one paragraph (Learn more + See Craig's) */
+main .section.dark > .default-content-wrapper > p > a:first-child:not(:only-child) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--background-color);
+  border-radius: var(--button-border-radius);
+  background-color: var(--background-color);
+  color: var(--att-blue-dark);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+  margin-right: 12px;
+}
+
+main .section.dark > .default-content-wrapper > p > a:first-child:not(:only-child):hover {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+}
+
+main .section.dark > .default-content-wrapper > p > a:nth-child(2) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--text-color-inverse);
+  border-radius: var(--button-border-radius);
+  background-color: transparent;
+  color: var(--text-color-inverse);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+}
+
+main .section.dark > .default-content-wrapper > p > a:nth-child(2):hover {
+  background-color: var(--light-blue-hover);
+  border-color: var(--light-blue-hover);
+  color: var(--att-blue-dark);
+}
+
+/* ========================
+   Guarantee Section - background image with text overlay
+   ======================== */
+main .section.guarantee {
+  color: var(--text-color-inverse);
+  padding: 64px 0;
+  margin: 0;
+}
+
+main .section.guarantee h2 {
+  color: var(--background-color);
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+main .section.guarantee p {
+  color: var(--text-color-inverse);
+}
+
+main .section.guarantee li {
+  color: var(--text-color-inverse);
+}
+
+main .section.guarantee a:any-link {
+  color: var(--text-color-inverse);
+}
+
+main .section.guarantee a.button.primary {
+  border-color: var(--background-color);
+  background-color: transparent;
+  color: var(--background-color);
+}
+
+main .section.guarantee a.button.primary:hover {
+  background-color: var(--background-color);
+  color: var(--att-blue-dark);
+}
+
+main .section.guarantee a.button.secondary {
+  border-color: var(--background-color);
+  color: var(--background-color);
+}
+
+main .section.guarantee ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main .section.guarantee ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 8px;
+}
+
+main .section.guarantee ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+/* Hide inline images in guarantee (now used as background) */
+main .section.guarantee > .default-content-wrapper > p:has(picture:only-child) {
+  display: none;
+}
+
+/* Guarantee section - button-style links */
+main .section.guarantee > .default-content-wrapper > p > a:first-child:not(:only-child) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--background-color);
+  border-radius: var(--button-border-radius);
+  background-color: transparent;
+  color: var(--background-color);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+  margin-right: 12px;
+}
+
+main .section.guarantee > .default-content-wrapper > p > a:first-child:not(:only-child):hover {
+  background-color: var(--background-color);
+  color: var(--att-blue-dark);
+}
+
+main .section.guarantee > .default-content-wrapper > p > a:nth-child(2) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--background-color);
+  border-radius: var(--button-border-radius);
+  background-color: transparent;
+  color: var(--background-color);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+}
+
+main .section.guarantee > .default-content-wrapper > p > a:nth-child(2):hover {
+  background-color: var(--background-color);
+  color: var(--att-blue-dark);
+}
+
+/* ========================
+   Testimonials Section - 4-column card grid
+   ======================== */
+main .section.testimonials {
+  margin: 40px 0;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (width >= 600px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.testimonial-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card > p:first-child {
+  margin: 0;
+}
+
+.testimonial-card > p:first-child img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonial-card > p:not(:first-child),
+.testimonial-card > h3 {
+  padding: 0 16px;
+}
+
+/* Category label */
+.testimonial-card > p:nth-child(2) {
+  font-size: var(--body-font-size-s);
+  color: var(--text-color-muted);
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+/* Quote heading */
+.testimonial-card > h3 {
+  font-size: var(--heading-font-size-s);
+  margin-top: 4px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* Description */
+.testimonial-card > p:nth-child(4) {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Attribution */
+.testimonial-card > p:nth-child(5) {
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color-muted);
+  margin-top: auto;
+}
+
+/* Read the full story link */
+.testimonial-card > p:last-child {
+  padding: 0 16px 16px;
+  margin-top: auto;
+}
+
+.testimonial-card > p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--att-blue-dark);
+  border-radius: var(--button-border-radius);
+  background-color: var(--att-blue-dark);
+  color: var(--background-color);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+}
+
+.testimonial-card > p:last-child a:hover {
+  background-color: var(--att-blue-hover);
+  border-color: var(--att-blue-hover);
+  color: var(--background-color);
+}
+
+/* ========================
+   Form Section - 2-column layout (info left, form right)
+   ======================== */
+@media (width >= 900px) {
+  main .section.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+    max-width: var(--section-max-width);
+    margin: 40px auto;
+    padding: 0 32px;
+  }
+
+  main .section.form-container > .default-content-wrapper,
+  main .section.form-container > .form-wrapper {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* ========================
+   Grey/Satisfaction Section - styling
+   ======================== */
+main .section.grey {
+  text-align: center;
+}
+
+main .section.grey h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+@media (width >= 900px) {
+  main .section.grey {
+    text-align: left;
+    padding: 64px 0;
+  }
+}
+
+/* ========================
+   Accent Section - centered text
+   ======================== */
+main .section.accent {
+  text-align: center;
+}
+
+main .section.accent p:first-child strong {
+  font-size: var(--heading-font-size-l);
+  display: block;
+  margin-bottom: 8px;
+}
+
+main .section.accent p:last-child {
+  font-size: var(--body-font-size-xs);
+  color: var(--text-color-muted);
+}
+
+/* ========================
+   Switch Section - perks list styling
+   ======================== */
+main .section.switch {
+  padding: 48px 0;
+}
+
+main .section.switch ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main .section.switch ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+}
+
+main .section.switch ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--att-blue);
+  font-weight: 700;
+}
+
+/* Switch section - button-style Learn more link */
+main .section.switch > .default-content-wrapper > p:last-child > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: var(--button-padding);
+  border: 2px solid var(--att-blue-dark);
+  border-radius: var(--button-border-radius);
+  background-color: var(--att-blue-dark);
+  color: var(--background-color);
+  font-size: var(--button-font-size);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--button-transition);
+}
+
+main .section.switch > .default-content-wrapper > p:last-child > a:only-child:hover {
+  background-color: var(--att-blue-hover);
+  border-color: var(--att-blue-hover);
+}
