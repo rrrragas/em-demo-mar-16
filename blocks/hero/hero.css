@@ -36,8 +36,8 @@
 .hero .hero-content em {
   display: block;
   font-style: normal;
-  font-size: var(--body-font-size-s);
-  font-weight: 700;
+  font-size: var(--heading-font-size-m);
+  font-weight: 400;
   color: var(--text-color-dark);
   margin-bottom: var(--spacing-xs);
   text-transform: none;
@@ -55,8 +55,8 @@
 
 .hero .hero-content p {
   color: var(--text-color-muted);
-  font-size: var(--body-font-size-m);
-  line-height: 1.5;
+  font-size: var(--body-font-size-l);
+  line-height: 1.4;
   margin-top: 0;
 }
 
@@ -68,7 +68,7 @@
 
 @media (width >= 900px) {
   .hero {
-    min-height: 480px;
+    min-height: 500px;
   }
 
   .hero .hero-content {
@@ -77,6 +77,7 @@
 
   .hero .hero-content h1,
   .hero .hero-content h2 {
-    font-size: var(--heading-font-size-xxl);
+    font-size: 48px;
+    line-height: 1.15;
   }
 }
