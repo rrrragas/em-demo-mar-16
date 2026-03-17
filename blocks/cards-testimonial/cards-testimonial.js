@@ -24,7 +24,14 @@ export default function decorate(block) {
           lastP.classList.add('cards-testimonial-cta');
         }
         for (let i = 1; i < paragraphs.length - 1; i += 1) {
-          if (!paragraphs[i].querySelector('strong')) {
+          const text = paragraphs[i].textContent.trim();
+          if (text === 'Solutions start at') {
+            paragraphs[i].classList.add('cards-testimonial-price-label');
+          } else if (paragraphs[i].querySelector('strong') && text.match(/^\$\d/)) {
+            paragraphs[i].classList.add('cards-testimonial-price');
+          } else if (text.startsWith('per line')) {
+            paragraphs[i].classList.add('cards-testimonial-price-disclosure');
+          } else if (!paragraphs[i].querySelector('strong')) {
             paragraphs[i].classList.add('cards-testimonial-fine-print');
           }
         }

@@ -384,6 +384,55 @@ main .section.form-container > .form-wrapper {
 }
 
 /* ========================
+   Section Headings (default content above blocks)
+   ======================== */
+main .section.cards-testimonial-container > .default-content-wrapper,
+main .section.cards-promo-container > .default-content-wrapper,
+main .section.columns-icon-cards-container > .default-content-wrapper,
+main .section.cards-industry-container > .default-content-wrapper {
+  text-align: center;
+  max-width: var(--section-max-width);
+  margin: 0 auto 32px;
+  padding: 0 16px;
+}
+
+main .section.cards-testimonial-container > .default-content-wrapper h2,
+main .section.cards-promo-container > .default-content-wrapper h2,
+main .section.columns-icon-cards-container > .default-content-wrapper h2,
+main .section.cards-industry-container > .default-content-wrapper h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1d2329;
+  letter-spacing: -1.44px;
+  line-height: 1.15;
+  margin: 0;
+}
+
+main .section.cards-testimonial-container > .default-content-wrapper p,
+main .section.cards-promo-container > .default-content-wrapper p,
+main .section.columns-icon-cards-container > .default-content-wrapper > p:first-of-type,
+main .section.cards-industry-container > .default-content-wrapper p {
+  font-size: 18px;
+  color: #454b52;
+  line-height: 1.4;
+  margin: 8px 0 0;
+}
+
+/* Fine print below columns-icon-cards */
+main .section.columns-icon-cards-container > .default-content-wrapper > p:last-child {
+  font-size: 12px;
+  color: #454b52;
+  line-height: 1.4;
+  margin-top: 32px;
+  max-width: var(--section-max-width);
+}
+
+main .section.columns-icon-cards-container > .default-content-wrapper > p:last-child a {
+  color: #454b52;
+  text-decoration: underline;
+}
+
+/* ========================
    Grey/Satisfaction Section - styling
    ======================== */
 main .section.grey {

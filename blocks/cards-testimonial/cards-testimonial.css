@@ -52,6 +52,36 @@
   margin: 16px 0 0;
 }
 
+/* Pricing label - "Solutions start at" */
+.cards-testimonial .cards-testimonial-card-body p.cards-testimonial-price-label {
+  font-size: 13px;
+  color: #1d2329;
+  line-height: 1.2;
+  margin: 16px 0 0;
+}
+
+/* Price amount - "$25/mo." */
+.cards-testimonial .cards-testimonial-card-body p.cards-testimonial-price {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1d2329;
+  line-height: 0.8;
+  margin: 10px 0 0;
+}
+
+.cards-testimonial .cards-testimonial-card-body p.cards-testimonial-price strong {
+  font-size: 18px;
+  vertical-align: super;
+}
+
+/* Price disclosure - "per line for 36 mos." */
+.cards-testimonial .cards-testimonial-card-body p.cards-testimonial-price-disclosure {
+  font-size: 12px;
+  color: #454b52;
+  line-height: 1.2;
+  margin: 8px 0 0;
+}
+
 /* Fine print paragraphs */
 .cards-testimonial .cards-testimonial-card-body p.cards-testimonial-fine-print {
   font-size: 12px;
