@@ -14,6 +14,22 @@ export default function decorate(block) {
         div.className = 'cards-testimonial-card-body';
       }
     });
+    // Classify card body paragraphs
+    const body = li.querySelector('.cards-testimonial-card-body');
+    if (body) {
+      const paragraphs = body.querySelectorAll('p');
+      if (paragraphs.length > 1) {
+        const lastP = paragraphs[paragraphs.length - 1];
+        if (lastP.querySelector('a')) {
+          lastP.classList.add('cards-testimonial-cta');
+        }
+        for (let i = 1; i < paragraphs.length - 1; i += 1) {
+          if (!paragraphs[i].querySelector('strong')) {
+            paragraphs[i].classList.add('cards-testimonial-fine-print');
+          }
+        }
+      }
+    }
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => {
