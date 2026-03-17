@@ -100,10 +100,57 @@ footer .footer > div > .section:nth-child(2) a:any-link {
   font-weight: 700;
   font-size: 16px;
   letter-spacing: -0.48px;
+  text-decoration: none;
 }
 
 footer .footer > div > .section:nth-child(2) a:hover {
   color: var(--link-color);
+}
+
+/* Footer category accordion toggles */
+footer .footer > div > .section:nth-child(2) li.footer-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+footer .footer > div > .section:nth-child(2) li.footer-category::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+footer .footer > div > .section:nth-child(2) li.footer-category[aria-expanded='true']::after {
+  transform: rotate(-135deg);
+}
+
+footer .footer > div > .section:nth-child(2) li.footer-category + ul {
+  display: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+footer .footer > div > .section:nth-child(2) li.footer-category[aria-expanded='true'] + ul {
+  display: block;
+}
+
+footer .footer > div > .section:nth-child(2) li.footer-category + ul li {
+  padding: 4px 0;
+}
+
+footer .footer > div > .section:nth-child(2) li.footer-category + ul a {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0;
 }
 
 /* Section 3: Quick links */
@@ -201,9 +248,15 @@ footer .footer > div > .section:last-child p:last-child {
   }
 
   footer .footer > div > .section:nth-child(2) .default-content-wrapper {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px 12.5%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 12.5%;
     padding: 64px 32px 32px;
+  }
+
+  footer .footer > div > .section:nth-child(2) .default-content-wrapper > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12.5%;
   }
 
   footer .footer > div > .section:nth-child(3) .default-content-wrapper {
