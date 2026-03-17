@@ -137,7 +137,7 @@ function buildSearch() {
   search.className = 'nav-search';
   search.innerHTML = `<form class="nav-search-form" role="search" action="/search">
       <label for="nav-search-input" class="sr-only">Search</label>
-      <input type="search" id="nav-search-input" placeholder="Search AT&T business" autocomplete="off">
+      <input type="search" id="nav-search-input" placeholder="Let's find what you need..." autocomplete="off">
       <button type="submit" aria-label="Search">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path d="M11.7 11C13.6 8.7 13.4 5.4 11.2 3.4C9 1.4 5.7 1.5 3.6 3.6C1.5 5.7 1.4 9 3.4 11.2C5.4 13.4 8.7 13.6 11 11.7L15.1 15.9L15.8 15.1L11.7 11ZM7.5 12C5 12 3 10 3 7.5C3 5 5 3 7.5 3C10 3 12 5 12 7.5C12 10 10 12 7.5 12Z" fill="currentColor"/>
