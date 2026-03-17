@@ -95,3 +95,45 @@
     line-height: 1.15;
   }
 }
+
+@media (width >= 1200px) {
+  .hero {
+    height: 500px;
+    min-height: 500px;
+  }
+
+  /* Source site has no gradient overlay on desktop */
+  .hero::after {
+    display: none;
+  }
+
+  .hero .hero-content {
+    padding: 0 32px;
+    max-width: 1324px;
+  }
+
+  .hero .hero-content > div {
+    max-width: 50%;
+  }
+
+  .hero .hero-content em {
+    font-size: 20px;
+    line-height: 21px;
+    margin-bottom: 8px;
+  }
+
+  .hero .hero-content h1,
+  .hero .hero-content h2 {
+    font-size: 48px;
+    line-height: 55.2px;
+    letter-spacing: -1.44px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+
+  .hero .hero-content p {
+    font-size: 18px;
+    line-height: 25.2px;
+    margin: 0;
+  }
+}
