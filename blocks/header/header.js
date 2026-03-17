@@ -109,6 +109,56 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * Builds the top segment bar (Personal | Business — Support | Contact Sales).
+ * @returns {HTMLElement} The top bar element
+ */
+function buildTopBar() {
+  const topBar = document.createElement('div');
+  topBar.className = 'nav-top-bar';
+  topBar.innerHTML = `<div class="nav-top-bar-inner">
+      <ul class="nav-top-bar-left">
+        <li><a href="https://www.att.com/?customerType=personal">Personal</a></li>
+        <li><a href="https://www.business.att.com"><span class="active">Business</span></a></li>
+      </ul>
+      <ul class="nav-top-bar-right">
+        <li><a href="/support.html">Support</a></li>
+        <li><a href="/contact.html">Contact Sales</a></li>
+      </ul>
+    </div>`;
+  return topBar;
+}
+
+/**
+ * Builds the search box for the header.
+ * @returns {HTMLElement} The search element
+ */
+function buildSearch() {
+  const search = document.createElement('div');
+  search.className = 'nav-search';
+  search.innerHTML = `<form class="nav-search-form" role="search" action="/search">
+      <label for="nav-search-input" class="sr-only">Search</label>
+      <input type="search" id="nav-search-input" placeholder="Search AT&T business" autocomplete="off">
+      <button type="submit" aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M11.7 11C13.6 8.7 13.4 5.4 11.2 3.4C9 1.4 5.7 1.5 3.6 3.6C1.5 5.7 1.4 9 3.4 11.2C5.4 13.4 8.7 13.6 11 11.7L15.1 15.9L15.8 15.1L11.7 11ZM7.5 12C5 12 3 10 3 7.5C3 5 5 3 7.5 3C10 3 12 5 12 7.5C12 10 10 12 7.5 12Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </form>`;
+  return search;
+}
+
+/**
+ * Builds the account sign-in button.
+ * @returns {HTMLElement} The account element
+ */
+function buildAccount() {
+  const account = document.createElement('div');
+  account.className = 'nav-account';
+  account.innerHTML = '<button type="button" class="nav-account-btn" aria-label="Account sign in">Account sign in</button>';
+  return account;
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -151,6 +201,15 @@ export default async function decorate(block) {
     });
   }
 
+  // add search and account to desktop nav
+  const navTools = nav.querySelector('.nav-tools');
+  const searchEl = buildSearch();
+  const accountEl = buildAccount();
+  if (navTools) {
+    navTools.prepend(accountEl);
+    navTools.prepend(searchEl);
+  }
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -166,6 +225,10 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+
+  // add top segment bar
+  const topBar = buildTopBar();
+  navWrapper.append(topBar);
   navWrapper.append(nav);
   block.append(navWrapper);
 }
