@@ -331,23 +331,55 @@ main .section.testimonials {
 }
 
 /* ========================
-   Form Section - 2-column layout (info left, form right)
+   Form Section - centered stacked layout
    ======================== */
+main .section.form-container {
+  background-color: #f3f4f6;
+  padding: 64px 16px;
+  text-align: center;
+}
+
+main .section.form-container > .default-content-wrapper {
+  max-width: 1008px;
+  margin: 0 auto;
+}
+
+main .section.form-container > .default-content-wrapper h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1d2329;
+  letter-spacing: -1.44px;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0;
+}
+
+main .section.form-container > .default-content-wrapper p {
+  font-size: 18px;
+  color: #454b52;
+  line-height: 1.4;
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+main .section.form-container > .default-content-wrapper p:last-child {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+main .section.form-container > .default-content-wrapper a {
+  color: #0074b3;
+  text-decoration: underline;
+}
+
+main .section.form-container > .form-wrapper {
+  max-width: 811px;
+  margin: 24px auto 0;
+}
+
 @media (width >= 900px) {
   main .section.form-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 48px;
-    max-width: var(--section-max-width);
-    margin: 40px auto;
-    padding: 0 32px;
-  }
-
-  main .section.form-container > .default-content-wrapper,
-  main .section.form-container > .form-wrapper {
-    max-width: none;
-    margin: 0;
-    padding: 0;
+    padding: 64px 32px;
   }
 }
 

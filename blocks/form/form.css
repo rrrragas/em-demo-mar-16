@@ -1,34 +1,45 @@
 .form form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-m);
+  gap: 16px;
+  text-align: left;
 }
 
 .form .form-field label {
   display: block;
-  font-size: var(--body-font-size-xs);
-  color: var(--text-color-muted);
-  margin-bottom: 4px;
-  font-weight: 500;
+  font-size: 14px;
+  color: #454b52;
+  margin-bottom: 8px;
+  font-weight: 700;
 }
 
 .form .form-field input,
 .form .form-field textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 12px 0;
-  border: none;
-  border-bottom: 1px solid #c4c4c4;
-  background-color: transparent;
+  padding: 12px 16px;
+  border: 1px solid #878c94;
+  border-radius: 8px;
+  background-color: #fff;
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  color: var(--text-color);
+  font-size: 14px;
+  color: #1d2329;
   transition: border-color var(--transition-base);
+}
+
+.form .form-field input {
+  height: 48px;
+}
+
+.form .form-field textarea {
+  font-size: 16px;
+  height: 98px;
+  resize: vertical;
 }
 
 .form .form-field input:focus,
 .form .form-field textarea:focus {
-  border-bottom-color: var(--att-blue);
+  border-color: var(--att-blue);
   outline: none;
 }
 
@@ -39,6 +50,7 @@
 
 .form .form-field-checkbox {
   grid-column: 1 / -1;
+  text-align: center;
 }
 
 .form .form-checkbox {
@@ -46,15 +58,15 @@
   align-items: flex-start;
   gap: var(--spacing-xs);
   cursor: pointer;
-  font-size: var(--body-font-size-s);
-  color: var(--text-color-muted);
-  line-height: 1.4;
+  font-size: 14px;
+  color: #454b52;
+  line-height: 1.57;
 }
 
 .form .form-checkbox input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
   margin-top: 2px;
   accent-color: var(--att-blue);
   cursor: pointer;
@@ -64,7 +76,8 @@
 
 .form .form-submit {
   grid-column: 1 / -1;
-  margin-top: var(--spacing-s);
+  margin-top: 8px;
+  text-align: center;
 }
 
 .form .form-submit button {
@@ -73,12 +86,12 @@
   align-items: center;
   justify-content: center;
   height: var(--button-height);
-  min-width: 160px;
-  border: 2px solid transparent;
+  min-width: 112px;
+  border: none;
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   background-color: var(--att-blue-dark);
-  color: var(--background-color);
+  color: #f2fafd;
   font-family: var(--body-font-family);
   font-size: var(--button-font-size);
   font-weight: 700;
@@ -88,7 +101,6 @@
 
 .form .form-submit button:hover {
   background-color: var(--att-blue-hover);
-  border-color: var(--att-blue-hover);
 }
 
 @media (width >= 600px) {
